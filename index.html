@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ahaobrianAI's🤪 - Where Curiosity Meets Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Bubbles */
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+            25% { transform: translateY(-100px) translateX(50px) scale(1.1); }
+            50% { transform: translateY(-50px) translateX(-50px) scale(0.9); }
+            75% { transform: translateY(-150px) translateX(100px) scale(1.05); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #f093fb, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 50px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.2s ease;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: fadeInUp 1.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: wiggle 3s infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        .feature-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .music-player:hover {
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: #667eea;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .song-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .song-artist {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                padding: 15px;
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: bounceArrow 2s infinite;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Bubbles -->
+    <div class="bubble" style="width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 150px; height: 150px; top: 20%; right: 20%; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 80px; height: 80px; bottom: 20%; left: 30%; animation-delay: 4s;"></div>
+    <div class="bubble" style="width: 120px; height: 120px; top: 50%; right: 10%; animation-delay: 6s;"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">ahaobrianAI's🤪</div>
+        <button class="nav-btn" onclick="scrollToFeatures()">Explore</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">Welcome to the Future</h1>
+        <p class="hero-subtitle">Where curiosity meets technology! 🚀</p>
+        <button class="cta-button" id="launchBtn">Launch Platform ✨</button>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="features-title">What You Can Do</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">AI Chat</h3>
+                <p class="feature-desc">Talk with multiple AI models. Get instant answers and creative ideas!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📥</div>
+                <h3 class="feature-title">Media Downloader</h3>
+                <p class="feature-desc">Download from YouTube, TikTok, Instagram, and 6+ platforms instantly!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">AI Art Generator</h3>
+                <p class="feature-desc">Create stunning images from text. Bring your imagination to life!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3 class="feature-title">Movie Database</h3>
+                <p class="feature-desc">Search any movie or TV show. Get ratings, cast, and plot details!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3 class="feature-title">Fun Zone</h3>
+                <p class="feature-desc">Jokes, quotes, anime info, and cricket scores. Entertainment awaits!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3 class="feature-title">Music Player</h3>
+                <p class="feature-desc">Enjoy curated tracks while you explore. Vibe with the best!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-title">Powered by ahaobrianAI's🤪</div>
+        <div class="footer-text">This is where curiosity meets technology!</div>
+        <div class="footer-text" style="margin-top: 10px; font-size: 0.9rem;">© 2025 • Built with 💜</div>
+    </footer>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="play-btn" id="playBtn">▶</button>
+        <div class="song-info">
+            <div class="song-title" id="songTitle">About You</div>
+            <div class="song-artist" id="songArtist">J.Rizzy</div>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="audioPlayer" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Music Player Setup
+        const songs = [
+            { title: 'About You', artist: 'J.Rizzy', url: 'https://youtu.be/wu12LLIQEVQ?si=v3ACc3_aI2hzpo0t' },
+            { title: 'The Box', artist: 'Roddy Ricch', url: 'https://youtu.be/4QGqFfhKWYo?si=0BF__Oax2EyK7sZq' },
+            { title: "God's Plan", artist: 'Drake', url: 'https://youtu.be/pPKx-fon1nY?si=hQRBxnggrXAb6WIy' },
+            { title: 'Sasa Hivi', artist: 'Vijana Barubaru', url: 'https://youtu.be/O5MyE-b9tPw?si=IjMxjq4Hpe4KxIWr' }
+        ];
+
+        let currentSong = 0;
+        let isPlaying = false;
+        const playBtn = document.getElementById('playBtn');
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        // Note: YouTube links can't be played directly. We'll use text-to-speech for now
+        // In production, you'd convert these to MP3s or use YouTube API
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            playBtn.textContent = isPlaying ? '⏸' : '▶';
+            
+            if (isPlaying) {
+                speak(`Now playing ${songs[currentSong].title} by ${songs[currentSong].artist}`);
+            }
+        });
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                utterance.pitch = 1.0;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Launch Platform Button
+        document.getElementById('launchBtn').addEventListener('click', () => {
+            window.location.href = 'app.html';
+        });
+
+        // Smooth Scroll
+        function scrollToFeatures() {
+            document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Welcome Message
+        setTimeout(() => {
+            speak("Welcome to ahaobrianAI's platform, where curiosity meets technology!");
+        }, 2000);
+
+        // Add more bubbles dynamically
+        for (let i = 0; i < 10; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.style.width = Math.random() * 100 + 50 + 'px';
+            bubble.style.height = bubble.style.width;
+            bubble.style.top = Math.random() * 100 + '%';
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDelay = Math.random() * 10 + 's';
+            document.body.appendChild(bubble);
+        }
+    </script>
+</body>
+  </html>
