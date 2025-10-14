@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 // We'll stub the widgets for now; you'll fill these in step-by-step!
-import YouTubeAudioWidget from "./widgets/YouTubeAudioWidget";
-import YouTubeVideoWidget from "./widgets/YouTubeVideoWidget";
-import AIChatWidget from "./widgets/AIChatWidget";
-import AIImageWidget from "./widgets/AIImageWidget";
-import MovieWidget from "./widgets/MovieWidget";
-import SocialDownloaderWidget from "./widgets/SocialDownloaderWidget";
-import EntertainmentWidget from "./widgets/EntertainmentWidget";
-import QuickLinksWidget from "./widgets/QuickLinksWidget";
+import YouTubeAudioWidget from "./widgets/youtubeaudiowidget";
+import YouTubeVideoWidget from "./widgets/youtubevideowidget";
+import AIChatWidget from "./widgets/aichatwidget";
+import AIImageWidget from "./widgets/aiimagewidget";
+import MovieWidget from "./widgets/moviewidget";
+import SocialDownloaderWidget from "./widgets/socialdownloaderwidget";
+import EntertainmentWidget from "./widgets/entertainmentwidget";
+import QuickLinksWidget from "./widgets/quicklinkswidget";
 
 // Rainbow card styling and playful bounce animation
 const DashboardGrid = styled.div`
@@ -50,35 +50,35 @@ function Dashboard() {
     <DashboardGrid>
       <WidgetCard>
         <SectionTitle>🎵 YouTube Audio Downloader</SectionTitle>
-        <YouTubeAudioWidget />
+        <youtubeaudiowidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>🎬 YouTube Video Downloader</SectionTitle>
-        <YouTubeVideoWidget />
+        <youtubevideowidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>🤖 AI Chat</SectionTitle>
-        <AIChatWidget />
+        <aichatwidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>🎨 AI Image Generator</SectionTitle>
-        <AIImageWidget />
+        <aiimagewidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>🎬 Movie Database</SectionTitle>
-        <MovieWidget />
+        <moviewidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>📥 Social Media Downloaders</SectionTitle>
-        <SocialDownloaderWidget />
+        <socialdownloaderwidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>🎮 Entertainment</SectionTitle>
-        <EntertainmentWidget />
+        <entertainmentwidget />
       </WidgetCard>
       <WidgetCard>
         <SectionTitle>🎵 Quick Links (Sample Songs)</SectionTitle>
-        <QuickLinksWidget />
+        <quicklinkswidget />
       </WidgetCard>
     </DashboardGrid>
   );
