@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ChoiceSelector from "../common/ChoiceSelector";
+import ChoiceSelector from "../common/choiceselector";
 import styled from "styled-components";
 
 // List of entertainment APIs
